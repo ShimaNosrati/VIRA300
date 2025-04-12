@@ -1,0 +1,68 @@
+version "5.0"
+#==========================================
+# ---- InnovMetric Software Inc.
+# ---- Module  :    PolyWorks|Inspector
+# ---- Version :    2021 IR3 (build 0000)
+# ---- Date    :    June 2, 2021 - 10:47:09
+# This macro creates shared variables in a PolyWorks|Inspector  module
+#------------------------------------------
+DECLARE samplesDir      "$0:h"
+DECLARE pythonVenv      "${samplesDir}\.venv\Scripts\python.exe"
+
+# 1. Declare values for shared variables
+#    TO REPLACE : create your shared variables with significant values
+#    Shared variable supported types are as follow:
+DECLARE valueInt                   123321312
+DECLARE valuteDecimal              1.444
+DECLARE valuteDecimalNegative      -888.1221
+DECLARE valueString                "wow aadadsas"
+DECLARE valueBoolTrue              "On"
+DECLARE valueBoolFalse             "Off"
+DECLARE valueArrayNumerical        { -1.0, 2, 0.0, -1.0, -354.3, 3092309.44 }
+DECLARE valueArrayAny              { $valueInt, $valuteDecimal, $valuteDecimalNegative, $valueString, $valueBoolTrue, $valueBoolFalse }
+DECLARE valuejson                  "{${_QUOTES}data${_QUOTES}: {${_QUOTES}type${_QUOTES}: ${_QUOTES}articles${_QUOTES},${_QUOTES}id${_QUOTES}: ${_QUOTES}1${_QUOTES}}}"
+
+#  2. Declare name for each shared variable
+#     TO REPLACE: use significant name for your shared variable, as you can see, special characters, numbers and whitespace
+#                 are supported as long as the name is a string
+DECLARE name0                      "alpha"
+DECLARE name1                      "beta"
+DECLARE name2                      "5"
+DECLARE name3                      "a variable"
+DECLARE name4                      "alphanumericV4r1bl3"
+DECLARE name5                      "var!ableW!thSpecialCharacter"
+DECLARE name6                      "p!3 D"
+DECLARE name7                      "hey 1 4M_a n@me"
+DECLARE name8                      "iota"
+
+# 3. Create shared variable using MSCL command MACRO SHARED_VARIABLE CREATE
+MACRO SHARED_VARIABLE CREATE ( $name0, $valueInt )
+MACRO SHARED_VARIABLE CREATE ( $name1, $valuteDecimal )
+MACRO SHARED_VARIABLE CREATE ( $name2, $valuteDecimalNegative )
+MACRO SHARED_VARIABLE CREATE ( $name3, $valueString )
+MACRO SHARED_VARIABLE CREATE ( $name4, $valueBoolTrue )
+MACRO SHARED_VARIABLE CREATE ( $name5, $valueBoolFalse )
+MACRO SHARED_VARIABLE CREATE ( $name6, $valueArrayNumerical)
+MACRO SHARED_VARIABLE CREATE ( $name7, $valueArrayAny )
+MACRO SHARED_VARIABLE CREATE ( $name8, $valuejson )
+
+# 4. Run python script that load the typelib for WorkspaceManager and IMInspect
+SYSTEM COMMAND EXEC SYNC ( "${samplesDir}/PythonMSCLVenv.bat")
+
+# 5. Run python script that processes the created shared variables
+#    TO REPLACE: replace or modify SharedVariableParser.py to customize python processing of the created shared variables
+DECLARE sharedVariableNamesString "${name0} ${name1} ${name2} ${_QUOTES}${name3}${_QUOTES} ${name4} ${name5} ${_QUOTES}${name6}${_QUOTES} ${_QUOTES}${name7}${_QUOTES} ${_QUOTES}${name8}${_QUOTES}"
+MACRO ECHO ( $sharedVariableNamesString )
+# Replace CD /D ${_QUOTES}${samplesDir}${_QUOTES} by CD {path to SharedVariableParser.py} if needed
+SYSTEM COMMAND EXEC SYNC( "CD /D ${_QUOTES}${samplesDir}${_QUOTES} && ${pythonVenv} SharedVariableParser.py --l DEBUG --v $sharedVariableNamesString" )
+
+# 6. Delete the created shared variables as soon as they are not needed
+DECLARE nameArray { $name0, $name1, $name2, $name3, $name4, $name5, $name6, $name7, $name8 }
+DECLARE sharedVariableValue
+DECLARE i    1
+WHILE $i <= SIZE ( nameArray )
+    MACRO SHARED_VARIABLE GET_VALUE ( $nameArray[ $i ], sharedVariableValue)
+    MACRO ECHO ( $sharedVariableValue )
+    MACRO SHARED_VARIABLE DELETE ( $nameArray[ $i ] )
+    ++i
+ENDWHILE

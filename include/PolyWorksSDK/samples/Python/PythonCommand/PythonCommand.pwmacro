@@ -1,0 +1,14 @@
+version "5.0"
+#======================================================
+# TO REPLACE
+# This script dummy script changes existing
+# shared variable values
+# ---- InnovMetric Software Inc.
+# ---- Module  :    PolyWorks|Inspector
+#======================================================
+
+DECLARE varName  $1
+DECLARE varValue $2
+
+# TO REPLACE : call MSCL command
+MACRO SHARED_VARIABLE SET_VALUE( $varName, $varValue )

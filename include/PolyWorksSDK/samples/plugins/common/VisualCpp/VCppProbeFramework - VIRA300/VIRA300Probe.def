@@ -1,0 +1,9 @@
+; VIRA300Probe.def : Declares the module parameters.
+
+LIBRARY      "VIRA300Probe.DLL"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer	PRIVATE

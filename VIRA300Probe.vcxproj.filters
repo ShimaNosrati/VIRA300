@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ef70d99a-a0af-4e7b-ae8f-f8185f3695cd}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{b30339d0-10c7-4716-87aa-c2d13b77974f}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{929a00dd-2fae-43c7-bd3e-72c719f9416e}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="SDK">
+      <UniqueIdentifier>{4801e68f-d8ad-4d95-9e06-926a6b60985d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CComInitRAII.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CComMessageFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Diagnostics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CVIRA300Probe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CVIRA300ProbePlugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CVIRA300eProbeSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VIRA300ProbeDll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CVIRA300SDKStub.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HowToCreateYourOwnPlugin.txt" />
+    <None Include="VIRA300Probe.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="VIRA300ProbePlugin.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CComInitRAII.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CComMessageFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CTSetting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IReceiver.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Diagnostics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CVIRA300Probe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CVIRA300ProbePlugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CVIRA300ProbeSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CVIRA300SDKStub.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="VIRA300Probe.idl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VIRA300Probe.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
